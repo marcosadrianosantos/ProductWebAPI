@@ -1,4 +1,10 @@
+using ProductProject.Setup;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var startup = new Startup(builder.Configuration);
+startup.ConfigureApp(builder.Services);
+builder.Services.AddCors();
 
 // Add services to the container.
 

@@ -1,8 +1,8 @@
 {
   "Version": 1,
-  "Hash": "PrhPJpdXmuuaFpdZAtQUC60vpQhJ3z15JfO+lT6+vjw=",
-  "Source": "ProductProject",
-  "BasePath": "_content/ProductProject",
+  "Hash": "58u3zwEUsnG/ilmS2YMjPlX8JAfadPfo4552F+Gyaqw=",
+  "Source": "ProductProject.Web",
+  "BasePath": "_content/ProductProject.Web",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
