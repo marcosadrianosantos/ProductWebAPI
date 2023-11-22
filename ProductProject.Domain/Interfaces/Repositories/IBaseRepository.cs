@@ -1,11 +1,13 @@
-﻿namespace ProductProject.Domain.Interfaces.Repositories
+﻿using MongoDB.Driver;
+
+namespace ProductProject.Domain.Interfaces.Repositories
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        Task Add(TEntity obj);
-        Task<TEntity> GetById(string id);
-        Task<List<TEntity>> GetAll();
+        Task AddAsync(TEntity obj);
+        Task<TEntity> GetByIdAsync(string id);
+        Task<List<TEntity>> GetAllAsync();
         Task UpdateAsync(string id, TEntity obj);
-        Task DeleteAsync(string id);
+        Task<DeleteResult> DeleteAsync(string id);
     }
 }

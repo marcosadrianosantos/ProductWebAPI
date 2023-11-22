@@ -27,7 +27,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Projects\\ProductProject\\ProductProject.Domain\\ProductProject.Domain.csproj": {
+                "projectPath": "C:\\Projects\\ProductProject\\ProductProject.Domain\\ProductProject.Domain.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -39,6 +43,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.8.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

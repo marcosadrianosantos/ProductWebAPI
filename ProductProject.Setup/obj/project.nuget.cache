@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "q21BZ6hRf4XMmeHh3nehskqFHKNhIdRHKpUMNQROIaHVmGni4QyK74tIEK2STwUdIOarAw/cGYKLCVTW7w5jUg==",
+  "dgSpecHash": "M6QA/0w+99/IuyVg2F3tz73KqA+ng9x3jLy29nLKuJghF0lGoPYG/beiUpBZr+dBqze507Ij6TJKL+Hr3pvqGQ==",
   "success": true,
   "projectFilePath": "C:\\Projects\\ProductProject\\ProductProject.Setup\\ProductProject.Setup.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\marco\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\marco\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\2.0.0\\microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",

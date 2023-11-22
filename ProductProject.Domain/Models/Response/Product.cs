@@ -9,19 +9,19 @@ namespace ProductProject.Domain.Models.Response
         public string? Id { get; set; }
 
         [BsonElement("Name"), BsonRequired]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [BsonElement("Description"), BsonRequired]
-        public string Description { get; set; }
+        public string Description { get; set; } = string.Empty;
 
         [BsonElement("Price"), BsonRequired, BsonRepresentation(BsonType.Decimal128)]
         public decimal Price { get; set; }
 
         [BsonElement("Color")]
-        public string Color { get; set; }
+        public string Color { get; set; } = string.Empty;
 
         [BsonElement("CategoryId"), BsonRequired, BsonRepresentation(BsonType.ObjectId)]
-        public string CategoryId { get; set; }
+        public string CategoryId { get; set; } = string.Empty;
 
         [BsonElement("Category")]
         public Category Category { get; set; }
