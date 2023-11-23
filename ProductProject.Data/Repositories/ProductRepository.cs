@@ -19,5 +19,6 @@ namespace ProductProject.Data.Repositories
         public async Task<Product> GetByIdAsync(string id) => await _context.Products.Find(x => x.Id == id).FirstOrDefaultAsync();
         public async Task UpdateAsync(string id, Product product) => await _context.Products.ReplaceOneAsync(x => x.Id == id, product);
         public async Task<DeleteResult> DeleteAsync(string id) => await _context.Products.DeleteOneAsync(x => x.Id == id);
+        public async Task<Product> GetByCategoryId(string id) => await _context.Products.Find(x => x.CategoryId == id).FirstOrDefaultAsync();
     }
 }

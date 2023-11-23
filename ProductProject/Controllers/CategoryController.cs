@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using ProductProject.Application.Interfaces;
 using ProductProject.Domain.Models.Request;
 
@@ -6,32 +7,30 @@ namespace ProductProject.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class CategoryController : ControllerBase
     {
-        private readonly IProductService _service;
+        private readonly ICategoryService _service;
 
-        public ProductController(IProductService service)
+        public CategoryController(ICategoryService service)
         {
             _service = service;
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductRequest productRequest)
+        public async Task<IActionResult> Create([FromBody] CategoryRequest categoryRequest)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _service.CreateProductAsync(productRequest);
-
-            if (result != null)
+            var result = await _service.CreateCategoryAsync(categoryRequest);
+            if(result != null)
             {
                 return Ok(result);
             }
             else
             {
-                //Ver melhor retorno do result para retornar BadRequest
                 return BadRequest(result);
             }
         }
@@ -47,7 +46,7 @@ namespace ProductProject.Web.Controllers
         public async Task<IActionResult> GetById(string id)
         {
             var result = await _service.GetByIdAsync(id);
-            if(result != null)
+            if (result != null)
             {
                 return Ok(result);
             }
@@ -58,14 +57,14 @@ namespace ProductProject.Web.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(string id, ProductRequest productRequest)
+        public async Task<IActionResult> Update(string id, CategoryRequest categoryRequest)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var result = await _service.UpdateAsync(id, productRequest);
+            var result = await _service.UpdateAsync(id, categoryRequest);
 
             if (result != null)
             {

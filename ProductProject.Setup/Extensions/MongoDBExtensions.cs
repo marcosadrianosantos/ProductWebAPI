@@ -11,7 +11,7 @@ namespace ProductProject.Setup.Extensions
         {
             return services
                 .AddScoped(x => new MongoDBContext(
-                    x.GetRequiredService<MongoClient>().GetDatabase(config.GetConnectionString("Store"))
+                    x.GetRequiredService<MongoClient>().GetDatabase(config.GetConnectionString("ProductApiDatabase"))
                     )
                 );
         }

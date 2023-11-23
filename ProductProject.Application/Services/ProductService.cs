@@ -8,15 +8,15 @@ namespace ProductProject.Application.Services
 {
     public class ProductService : IProductService
     {
-        private readonly ICategoryService _categoryService;
         private readonly IProductRepository _productRepository;
+        private readonly ICategoryRepository _categoryRepository;
         private readonly IMapper _mapper;
         
 
-        public ProductService(IProductRepository productRepository, ICategoryService categoryService, IMapper mapper)
+        public ProductService(IProductRepository productRepository, ICategoryRepository categoryRepository, IMapper mapper)
         {
-            _categoryService = categoryService;
             _productRepository = productRepository;
+            _categoryRepository = categoryRepository;
             _mapper = mapper;
         }
 
@@ -24,7 +24,7 @@ namespace ProductProject.Application.Services
         {
             try
             {
-                var category = await _categoryService.GetById(productRequest.CategoryId);
+                var category = await _categoryRepository.GetByIdAsync(productRequest.CategoryId);
                 if(category == null)
                 {
                     throw new Exception("Category not found");
@@ -70,17 +70,24 @@ namespace ProductProject.Application.Services
         {
             try
             {
-                var category = await _categoryService.GetById(productRequest.CategoryId);
+                var category = await _categoryRepository.GetByIdAsync(productRequest.CategoryId);
                 if (category == null)
                 {
                     throw new Exception("Category not found");
                 }
 
-                var productUpdate = _mapper.Map<Product>(productRequest);
+                var verifyProductExist = await _productRepository.GetByIdAsync(id);
+                if(verifyProductExist == null)
+                {
+                    throw new Exception("Product not found");
+                }
 
+                Validate(productRequest.Name, productRequest.Description, productRequest.Price, productRequest.CategoryId);
+
+                var productUpdate = _mapper.Map(productRequest, verifyProductExist);
                 await _productRepository.UpdateAsync(id, productUpdate);
 
-                return productUpdate;
+                return _mapper.Map<Product>(productUpdate);
             }
             catch (Exception ex)
             {
@@ -104,7 +111,7 @@ namespace ProductProject.Application.Services
             }
             catch (Exception ex)
             {
-                throw new Exception("Unable to delete the product", ex.InnerException);
+                throw new Exception(ex.Message);
             }
         }
 

@@ -25,15 +25,12 @@ namespace ProductProject.Setup
 
         private void ConfigureServices(IServiceCollection services)
         {
-            //Example:
-            //services.AddScoped<IProductService, ProductService>();
-            //services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<ICategoryService, CategoryService>();
         }
 
         private void ConfigureRepositories(IServiceCollection services)
         {
-            //Example:
-            //services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
         }
