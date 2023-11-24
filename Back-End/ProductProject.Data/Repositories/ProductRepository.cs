@@ -16,7 +16,6 @@ namespace ProductProject.Data.Repositories
         }
 
         public async Task AddAsync(Product product) => await _context.Products.InsertOneAsync(product);
-        //public async Task<List<Product>> GetAllAsync() => await _context.Products.AsQueryable().ToListAsync();
         public async Task<Product> GetByIdAsync(string id) 
         {
             var pipeline = new BsonDocument[]
@@ -24,17 +23,14 @@ namespace ProductProject.Data.Repositories
                 new BsonDocument("$lookup",
                     new BsonDocument
                     {
-                        { "from", "Category" },
+                        { "from", "Categories" },
                         { "localField", "CategoryId" },
                         { "foreignField", "_id" },
                         { "as", "Category" }
                     }),
                 new BsonDocument("$unwind", "$Category")
             };
-            var b = await _context.Products.Aggregate<Product>(pipeline).FirstOrDefaultAsync();
-             var a = await _context.Products.Find(x => x.Id == id).FirstOrDefaultAsync();
-
-            return a;
+            return await _context.Products.Aggregate<Product>(pipeline).FirstOrDefaultAsync();
         } 
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
@@ -51,11 +47,7 @@ namespace ProductProject.Data.Repositories
                 new BsonDocument("$unwind", "$Category")
             };
 
-            var a = await _context.Products.AsQueryable().ToListAsync();
-            var b = await _context.Products.Aggregate<Product>(pipeline).ToListAsync();
-            return a;
-
-            //return await _context.Products.Aggregate<Product>(pipeline).ToListAsync();
+            return await _context.Products.Aggregate<Product>(pipeline).ToListAsync();
         }
 
         public async Task UpdateAsync(string id, Product product) => await _context.Products.ReplaceOneAsync(x => x.Id == id, product);
