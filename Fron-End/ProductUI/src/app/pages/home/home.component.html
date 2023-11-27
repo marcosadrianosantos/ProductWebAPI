@@ -1,0 +1,72 @@
+<div>
+    <button routerLink="/categoryRegistration">Registering a new Category</button>
+    <div class="input-box">
+        <label>Search:</label>
+        <input type="text" placeholder="What category name do you want to search for?" (input)="searchCategory($event)">
+    </div>
+
+    <table class = "tableCategory">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody *ngFor="let category of categories">
+            <tr>
+                <td>{{category.name}}</td>
+                <td>{{category.description}}</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Details</button>
+                </td>
+                <td>
+                    <button>
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+<br>
+    <button routerLink="/productRegistration">Registering a new Product</button>
+    <div class="input-box">
+        <label>Search:</label>
+        <input type="text" placeholder="What product name do you want to search for?" (input)="search($event)">
+    </div>
+</div>
+
+<table class="tableProduct">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Category</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let product of products">
+        <tr>
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.color}}</td>
+            <td>{{product.category.name}}</td>
+            <td>
+                <button>Edit</button>
+                <button>Details</button>
+            </td>
+            <td>
+                <button>
+                    Delete
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

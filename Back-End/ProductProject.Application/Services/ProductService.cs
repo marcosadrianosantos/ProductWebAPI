@@ -129,7 +129,7 @@ namespace ProductProject.Application.Services
                 throw new Exception("Field 'Description' cannot be null or empty");
             }
 
-            if (!description.Contains(name))
+            if (!description.ToLower().Contains(name.ToLower()))
             {
                 throw new Exception("Field 'Description' must contain the product name inside");
             }

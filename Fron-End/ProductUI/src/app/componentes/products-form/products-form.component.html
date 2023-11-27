@@ -1,0 +1,29 @@
+<h1>{{btnTitle}}</h1>
+<form [formGroup]="formProduct" (ngSubmit)="submit()" #formDit="ngForm">
+    <div class="input_box">
+        <label for="">Name:</label>
+        <input type="text" formControlName="name" placeholder="Insert the name!" required>
+    </div>
+    <div class="input_box">
+        <label for="">Description:</label>
+        <input type="text" formControlName="description" placeholder="Insert the description" required>
+    </div>
+    <div class="input_box">
+        <label for="">Price:</label>
+        <input type="number" formControlName="price" placeholder="Insert the price!" required>
+    </div>
+    <div class="input_box">
+        <label for="">Color:</label>
+        <input type="text" formControlName="color" placeholder="Insert the color!" required>
+    </div>  
+    <div class="input_box">
+        <label for="">Category:</label>
+        <select id="categoryId" formControlName="categoryId" required>
+            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
+        </select>
+    </div>
+    <div class="btn-box">
+        <button type="submit" [disabled]="!formProduct.valid">{{btnAction}}</button>
+        <button routerLink="">Cancel</button>
+    </div>
+</form>
