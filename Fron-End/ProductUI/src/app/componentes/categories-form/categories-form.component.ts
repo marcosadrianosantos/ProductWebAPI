@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { Category } from 'src/app/models/Categories';
-import { CategoryService } from 'src/app/services/category.service';
 
 @Component({
   selector: 'app-categories-form',
@@ -12,15 +11,17 @@ export class CategoriesFormComponent implements OnInit{
   @Output() onSubmit = new EventEmitter<Category>();
   @Input() btnAction!: string;
   @Input() btnTitle!: string; 
+  @Input() categoryDate: Category | null = null;
 
   formCategory! : FormGroup;
 
-  constructor(private categoryService : CategoryService){}
+  constructor(){}
 
   ngOnInit(): void {
     this.formCategory = new FormGroup({
-      name: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
+      id: new FormControl(this.categoryDate ? this.categoryDate.id : ''),
+      name: new FormControl(this.categoryDate ? this.categoryDate.name : '', [Validators.required]),
+      description: new FormControl(this.categoryDate ? this.categoryDate.description : '', [Validators.required]),
     });
   }
 

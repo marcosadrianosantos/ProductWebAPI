@@ -20,6 +20,7 @@ namespace ProductProject.Data.Repositories
         {
             var pipeline = new BsonDocument[]
             {
+                new BsonDocument("$match", new BsonDocument("_id", new ObjectId(id))),
                 new BsonDocument("$lookup",
                     new BsonDocument
                     {

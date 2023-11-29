@@ -1,5 +1,6 @@
 <h1>{{btnTitle}}</h1>
 <form [formGroup]="formProduct" (ngSubmit)="submit()" #formDit="ngForm">
+    <input type="hidden" formControlName="id">
     <div class="input_box">
         <label for="">Name:</label>
         <input type="text" formControlName="name" placeholder="Insert the name!" required>
@@ -21,9 +22,11 @@
         <select id="categoryId" formControlName="categoryId" required>
             <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
         </select>
-    </div>
+    </div>  
     <div class="btn-box">
-        <button type="submit" [disabled]="!formProduct.valid">{{btnAction}}</button>
-        <button routerLink="">Cancel</button>
+        {{formProduct.valid}}
+        <button type="submit" [disabled]="!formProduct.valid" mat-raised-button ="accent">{{btnAction}}</button>
+        <button mat-raised-button disabled>Disabled</button>
+        <button type="button" routerLink="" mat-raised-button >Cancel</button>
     </div>
 </form>

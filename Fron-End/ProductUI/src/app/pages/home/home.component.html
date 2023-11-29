@@ -19,8 +19,8 @@
                 <td>{{category.name}}</td>
                 <td>{{category.description}}</td>
                 <td>
-                    <button>Edit</button>
-                    <button>Details</button>
+                    <button routerLink="/editCategory/{{category.id}}">Edit</button>
+                    <button routerLink="/detailsCategory/{{category.id}}">Details</button>
                 </td>
                 <td>
                     <button>
@@ -30,15 +30,14 @@
             </tr>
         </tbody>
     </table>
+</div>
 
-<br>
-    <button routerLink="/productRegistration">Registering a new Product</button>
+<div>
+<button routerLink="/productRegistration">Registering a new Product</button>
     <div class="input-box">
         <label>Search:</label>
         <input type="text" placeholder="What product name do you want to search for?" (input)="search($event)">
     </div>
-</div>
-
 <table class="tableProduct">
     <thead>
         <tr>
@@ -59,8 +58,8 @@
             <td>{{product.color}}</td>
             <td>{{product.category.name}}</td>
             <td>
-                <button>Edit</button>
-                <button>Details</button>
+                <button routerLink="/editProduct/{{product.id}}">Edit</button>
+                <button routerLink="/detailsProduct/{{product.id}}">Details</button>
             </td>
             <td>
                 <button>
@@ -70,3 +69,4 @@
         </tr>
     </tbody>
 </table>
+</div>

@@ -26,7 +26,7 @@ export class HomeComponent  implements OnInit {
       this.generalProducts = data;
     });
 
-    this.categoryService.GetCategory().subscribe(data => {
+    this.categoryService.GetCategories().subscribe(data => {
       this.categories = data;
       this.generalCategories = data;
     })

@@ -10,7 +10,14 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoryRegistrationComponent } from './pages/category-registration/category-registration.component';
 import { CategoriesFormComponent } from './componentes/categories-form/categories-form.component';
+import { ProductEditComponent } from './pages/product-edit/product-edit.component';
+import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { CategoryDetailsComponent } from './pages/category-details/category-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// Angular Material
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,14 +26,20 @@ import { CategoriesFormComponent } from './componentes/categories-form/categorie
     ProductRegistrationComponent,
     ProductsFormComponent,
     CategoryRegistrationComponent,
-    CategoriesFormComponent
+    CategoriesFormComponent,
+    ProductEditComponent,
+    CategoryEditComponent,
+    ProductDetailsComponent,
+    CategoryDetailsComponent
   ],
   imports: [
    BrowserModule,
    HttpClientModule,
    AppRoutingModule,
    FormsModule,
-   ReactiveFormsModule
+   ReactiveFormsModule,
+   BrowserAnimationsModule,
+   MatButtonModule
   ],
   providers: [ ],
   bootstrap: [AppComponent]

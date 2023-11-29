@@ -1,0 +1,19 @@
+<div>
+    <h1> Category Details</h1>
+</div>
+<div *ngIf="category">
+    <form>
+        <div class="input-box">
+            <label>Name:</label>
+            <input type="text" value="{{category.name}}" disabled>
+        </div>
+        <div class="input-box">
+            <label>Description:</label>
+            <input type="text" value="{{category.description}}" disabled>
+        </div>
+
+        <div class = "btn-box">
+            <button routerLink="">Cancel</button>
+        </div>
+    </form>
+</div>
