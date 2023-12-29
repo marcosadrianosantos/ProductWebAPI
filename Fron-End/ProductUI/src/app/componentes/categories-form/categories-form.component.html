@@ -1,16 +1,24 @@
-<h1>{{btnTitle}}</h1>
-<form [formGroup]="formCategory" (ngSubmit)="submit()" #formDit="ngForm">
-    <input type="hidden" formControlName="id">
-    <div class="input_box">
-        <label for="">Name:</label>
-        <input type="text" formControlName="name" placeholder="Insert the name!" required>
-    </div>
-    <div class="input_box">
-        <label for="">Description:</label>
-        <input type="text" formControlName="description" placeholder="Insert the description" required>
-    </div>
-    <div class="btn-box">
-        <button type="submit" [disabled]="!formCategory.valid">{{btnAction}}</button>
-        <button routerLink="">Cancel</button>
-    </div>
-</form>
+<mat-card>
+    <h1>{{btnTitle}}</h1>
+    <form [formGroup]="formCategory" (ngSubmit)="submit()" #formDit="ngForm">
+        <input type="hidden" formControlName="id">
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Name:</mat-label>
+                <input matInput type="text" formControlName="name" placeholder="Insert the name!" required>
+            </mat-form-field>
+        </div>
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Description:</mat-label>
+                <input matInput type="text" formControlName="description" placeholder="Insert the description!"
+                    required>
+            </mat-form-field>
+        </div>
+        <div class="btn-box">
+            <button type="submit" [disabled]="!formCategory.valid" mat-raised-button
+                color="accent" >{{btnAction}}</button>
+            <button type="button" routerLink="/categoryView" mat-raised-button>Cancel</button>
+        </div>
+    </form>
+</mat-card>

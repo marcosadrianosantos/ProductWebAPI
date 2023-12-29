@@ -7,15 +7,15 @@ import { Category } from 'src/app/models/Categories';
   templateUrl: './categories-form.component.html',
   styleUrls: ['./categories-form.component.sass']
 })
-export class CategoriesFormComponent implements OnInit{
+export class CategoriesFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<Category>();
   @Input() btnAction!: string;
-  @Input() btnTitle!: string; 
+  @Input() btnTitle!: string;
   @Input() categoryDate: Category | null = null;
 
-  formCategory! : FormGroup;
+  formCategory!: FormGroup;
 
-  constructor(){}
+  constructor() { }
 
   ngOnInit(): void {
     this.formCategory = new FormGroup({
@@ -25,8 +25,7 @@ export class CategoriesFormComponent implements OnInit{
     });
   }
 
-  submit()
-  {
+  submit() {
     this.onSubmit.emit(this.formCategory.value);
   }
 

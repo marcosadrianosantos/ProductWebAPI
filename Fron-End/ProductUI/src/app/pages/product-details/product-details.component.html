@@ -1,31 +1,43 @@
-<div>
-    <h1> Products Details</h1>
-</div>
-<div *ngIf="product">
-    <form>
-        <div class="input-box">
-            <label>Name:</label>
-            <input type="text" value="{{product.name}}" disabled>
-        </div>
-        <div class="input-box">
-            <label>Description:</label>
-            <input type="text" value="{{product.description}}" disabled>
-        </div>
-        <div class="input-box">
-            <label>Price:</label>
-            <input type="number" value="{{product.price}}" disabled>
-        </div>
-        <div class="input-box">
-            <label>Color:</label>
-            <input type="text" value="{{product.color}}" disabled>
-        </div>
-        <div class="input-box">
-            <label>Category Name:</label>
-            <input type="text" value="{{product.category.name}}" disabled>
-        </div>
+<mat-card>
+    <div>
+        <h1> Products Details</h1>
+    </div>
+    <div *ngIf="product">
+        <form>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Name:</mat-label>
+                    <input matInput type="text" value="{{product.name}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Description:</mat-label>
+                    <input matInput type="text" value="{{product.description}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Price:</mat-label>
+                    <input matInput type="text" value="{{product.price}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Color:</mat-label>
+                    <input matInput type="text" value="{{product.color}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Category Name:</mat-label>
+                    <input matInput type="text" value="{{product.category.name}}" disabled>
+                </mat-form-field>
+            </div>
 
-        <div class = "btn-box">
-            <button routerLink="">Cancel</button>
-        </div>
-    </form>
-</div>
+            <div class="btn-box">
+                <button routerLink="/productView" mat-raised-button>Cancel</button>
+            </div>
+        </form>
+    </div>
+</mat-card>

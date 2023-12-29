@@ -1,19 +1,25 @@
-<div>
-    <h1> Category Details</h1>
-</div>
-<div *ngIf="category">
-    <form>
-        <div class="input-box">
-            <label>Name:</label>
-            <input type="text" value="{{category.name}}" disabled>
-        </div>
-        <div class="input-box">
-            <label>Description:</label>
-            <input type="text" value="{{category.description}}" disabled>
-        </div>
+<mat-card>
+    <div>
+        <h1> Category Details</h1>
+    </div>
+    <div *ngIf="category">
+        <form>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Name:</mat-label>
+                    <input matInput type="text" value="{{category.name}}" disabled>
+                </mat-form-field>
+            </div>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Description:</mat-label>
+                    <input matInput type="text" value="{{category.description}}" disabled>
+                </mat-form-field>
+            </div>
 
-        <div class = "btn-box">
-            <button routerLink="">Cancel</button>
-        </div>
-    </form>
-</div>
+            <div class="btn-box">
+                <button routerLink="/categoryView" mat-raised-button>Cancel</button>
+            </div>
+        </form>
+    </div>
+</mat-card>

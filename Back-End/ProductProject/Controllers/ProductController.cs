@@ -18,20 +18,19 @@ namespace ProductProject.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] ProductRequest productRequest)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            var result = await _service.CreateProductAsync(productRequest);
-
-            if (result != null)
-            {
+                var result = await _service.CreateProductAsync(productRequest);
                 return Ok(result);
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
 
@@ -45,49 +44,47 @@ namespace ProductProject.Web.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(string id)
         {
-            var result = await _service.GetByIdAsync(id);
-            if(result != null)
+            try
             {
+                var result = await _service.GetByIdAsync(id);
                 return Ok(result);
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(string id, ProductRequest productRequest)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
-            }
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
 
-            var result = await _service.UpdateAsync(id, productRequest);
-
-            if (result != null)
-            {
+                var result = await _service.UpdateAsync(id, productRequest);
                 return Ok(result);
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
 
-        [HttpDelete("id")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(string id)
         {
-            var result = await _service.DeleteAsync(id);
-
-            if (result)
+            try
             {
+                var result = await _service.DeleteAsync(id);
                 return Ok(result);
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(result);
+                return BadRequest(ex.Message);
             }
         }
     }

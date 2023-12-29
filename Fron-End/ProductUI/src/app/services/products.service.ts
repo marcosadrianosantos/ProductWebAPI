@@ -10,21 +10,25 @@ import { Observable } from 'rxjs';
 export class ProductsService {
 
   private apiUrl = `${environment.ApiUrl}/Product`
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  GetProducts() : Observable<Product[]>{
+  GetProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.apiUrl);
   }
 
-  CreateProduct(product: Product) : Observable<Product[]>{
+  CreateProduct(product: Product): Observable<Product[]> {
     return this.http.post<Product[]>(`${this.apiUrl}`, product)
   }
 
-  GetProduct(id: string): Observable<Product>{
+  GetProduct(id: string): Observable<Product> {
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }
 
-  EditProduct(id: string, product : Product) : Observable<Product[]>{
+  EditProduct(id: string, product: Product): Observable<Product[]> {
     return this.http.put<Product[]>(`${this.apiUrl}/${id}`, product);
+  }
+
+  DeleteProduct(id: string): Observable<Product[]> {
+    return this.http.delete<Product[]>(`${this.apiUrl}/${id}`);
   }
 }

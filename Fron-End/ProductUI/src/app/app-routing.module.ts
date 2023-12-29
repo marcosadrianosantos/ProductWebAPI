@@ -7,15 +7,19 @@ import { ProductEditComponent } from './pages/product-edit/product-edit.componen
 import { CategoryEditComponent } from './pages/category-edit/category-edit.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { CategoryDetailsComponent } from './pages/category-details/category-details.component';
+import { CategoryViewComponent } from './pages/category-view/category-view.component';
+import { ProductViewComponent } from './pages/product-view/product-view.component';
 
 const routes: Routes = [
-  {path: 'productRegistration', component: ProductRegistrationComponent},
-  {path: 'categoryRegistration', component: CategoryRegistrationComponent},
-  {path: '', component: HomeComponent},
-  {path: 'editProduct/:id', component:ProductEditComponent},
-  {path: 'editCategory/:id', component: CategoryEditComponent},
-  {path: 'detailsProduct/:id', component: ProductDetailsComponent},
-  {path: 'detailsCategory/:id', component: CategoryDetailsComponent}
+  { path: 'productRegistration', component: ProductRegistrationComponent },
+  { path: 'categoryRegistration', component: CategoryRegistrationComponent },
+  { path: '', component: HomeComponent },
+  { path: 'editProduct/:id', component: ProductEditComponent },
+  { path: 'editCategory/:id', component: CategoryEditComponent },
+  { path: 'detailsProduct/:id', component: ProductDetailsComponent },
+  { path: 'detailsCategory/:id', component: CategoryDetailsComponent },
+  { path: 'categoryView', component: CategoryViewComponent},
+  { path: 'productView', component: ProductViewComponent},
 ];
 
 @NgModule({
@@ -24,4 +28,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 
- }
+}

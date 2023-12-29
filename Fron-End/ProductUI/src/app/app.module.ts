@@ -17,7 +17,18 @@ import { CategoryDetailsComponent } from './pages/category-details/category-deta
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Angular Material
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DeleteComponent } from './componentes/delete/delete.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { CategoryViewComponent } from './pages/category-view/category-view.component';
+import { ProductViewComponent } from './pages/product-view/product-view.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -30,18 +41,29 @@ import {MatButtonModule} from '@angular/material/button';
     ProductEditComponent,
     CategoryEditComponent,
     ProductDetailsComponent,
-    CategoryDetailsComponent
+    CategoryDetailsComponent,
+    DeleteComponent,
+    CategoryViewComponent,
+    ProductViewComponent,
   ],
   imports: [
-   BrowserModule,
-   HttpClientModule,
-   AppRoutingModule,
-   FormsModule,
-   ReactiveFormsModule,
-   BrowserAnimationsModule,
-   MatButtonModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTableModule,
+    MatDialogModule,
+    MatDividerModule,
+    MatPaginatorModule,
+    MatSnackBarModule
   ],
-  providers: [ ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

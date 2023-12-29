@@ -5,13 +5,13 @@ VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductProject.Web", "ProductProject\ProductProject.Web.csproj", "{9EE90790-6734-4908-805E-4B2EA8A9AD88}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{3B0F8AF6-11DF-4ECF-A561-AFCEA63C6158}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Application", "2 - Application", "{3B0F8AF6-11DF-4ECF-A561-AFCEA63C6158}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{44996B1B-88A9-4BA2-8A57-ED325DD64B89}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 -Domain", "3 -Domain", "{44996B1B-88A9-4BA2-8A57-ED325DD64B89}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{698AC503-0D1A-4191-BE92-513B5405F35A}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{698AC503-0D1A-4191-BE92-513B5405F35A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{9B21F8B7-ABE1-4CFE-81DF-335E95C7BA99}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Web", "1 - Web", "{9B21F8B7-ABE1-4CFE-81DF-335E95C7BA99}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductProject.Application", "ProductProject.Application\ProductProject.Application.csproj", "{4E46E330-9774-47D2-92CF-33B569767D0E}"
 EndProject
@@ -24,6 +24,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductProject.Data", "ProductProject.Data\ProductProject.Data.csproj", "{1D526F2D-9CC9-4168-926C-EBD4C8C5B6B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductProject.Setup", "ProductProject.Setup\ProductProject.Setup.csproj", "{EE6512DA-38AF-4940-BD96-4B2523B85193}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0 - Test", "0 - Test", "{095582E4-E94A-4A6F-B47A-621277ECE257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductProject.Test", "ProductProject.Test\ProductProject.Test.csproj", "{BB763AEB-B741-4989-B421-325C8A8CD123}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,10 @@ Global
 		{EE6512DA-38AF-4940-BD96-4B2523B85193}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE6512DA-38AF-4940-BD96-4B2523B85193}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE6512DA-38AF-4940-BD96-4B2523B85193}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB763AEB-B741-4989-B421-325C8A8CD123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB763AEB-B741-4989-B421-325C8A8CD123}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB763AEB-B741-4989-B421-325C8A8CD123}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB763AEB-B741-4989-B421-325C8A8CD123}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +71,7 @@ Global
 		{56304D26-85A5-43B2-BFE2-E05861D69A45} = {698AC503-0D1A-4191-BE92-513B5405F35A}
 		{1D526F2D-9CC9-4168-926C-EBD4C8C5B6B5} = {D5AD469E-EF37-41A4-8EB3-9DD46FF02E1A}
 		{EE6512DA-38AF-4940-BD96-4B2523B85193} = {56304D26-85A5-43B2-BFE2-E05861D69A45}
+		{BB763AEB-B741-4989-B421-325C8A8CD123} = {095582E4-E94A-4A6F-B47A-621277ECE257}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3998223-B321-48DD-89D0-FFE30BD47315}

@@ -21,8 +21,20 @@ namespace ProductProject.Application.Services
 
         public async Task<Category> GetByIdAsync(string categoryId)
         {
-            var category = await _repository.GetByIdAsync(categoryId);
-            return _mapper.Map<Category>(category);
+            try
+            {
+                var category = await _repository.GetByIdAsync(categoryId);
+                if(category == null)
+                {
+                    throw new Exception("Category not found");
+                }
+                return category;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<Category> CreateCategoryAsync(CategoryRequest categoryRequest)
@@ -52,18 +64,18 @@ namespace ProductProject.Application.Services
         {
             try
             {
+                Validate(categoryRequest.Name, categoryRequest.Description);
+
                 var verifyCategoryExist = await _repository.GetByIdAsync(id);
                 if(verifyCategoryExist == null)
                 {
                     throw new Exception("Category not found");
                 }
 
-                Validate(categoryRequest.Name, categoryRequest.Description);
-
                 var categoryUpdate = _mapper.Map(categoryRequest,verifyCategoryExist);
                 await _repository.UpdateAsync(id, categoryUpdate);
 
-                return _mapper.Map<Category>(categoryUpdate);
+                return categoryUpdate;
             }
             catch (Exception ex)
             {
@@ -78,7 +90,7 @@ namespace ProductProject.Application.Services
                 var productWithCategoryId = await _productRepository.GetByCategoryId(id);
                 if(productWithCategoryId != null)
                 {
-                    throw new Exception("The category canoot be deleted as it is associated with some products.");
+                    throw new ArgumentException("The category canoot be deleted as it is associated with some products.");
                 }
 
                 var category = await _repository.GetByIdAsync(id);
@@ -93,7 +105,6 @@ namespace ProductProject.Application.Services
             }
             catch (Exception ex)
             {
-
                 throw new Exception(ex.Message);
             }
         }
@@ -102,12 +113,12 @@ namespace ProductProject.Application.Services
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new Exception("Field 'Name' cannot be null or empty");
+                throw new Exception("Name cannot be null or empty");
             }
 
             if (string.IsNullOrWhiteSpace(description))
             {
-                throw new Exception("Field 'Description' cannot be null or empty");
+                throw new Exception("Description cannot be null or empty");
             }
         }
     }

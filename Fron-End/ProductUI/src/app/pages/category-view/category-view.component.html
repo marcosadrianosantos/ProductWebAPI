@@ -1,0 +1,50 @@
+<button mat-button routerLink=""> Home </button>
+<button mat-button routerLink="/productView"> Product </button>
+<mat-card>
+    <div class="class-box">
+      <button routerLink="/categoryRegistration" mat-raised-button color="primary">Registering a new Category</button>
+      <div class="input-box">
+        <mat-form-field>
+          <mat-label>Search:</mat-label>
+          <input matInput type="text" placeholder="What category name do you want to search for?" (input)="searchCategory($event)">
+        </mat-form-field>
+      </div>
+
+      <table mat-table [dataSource]="categories" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Category">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let category"> {{category.name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let category"> {{category.description}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let category">
+            <button routerLink="/editCategory/{{category.id}}" mat-raised-button color="accent">Edit</button>
+            <button routerLink="/detailsCategory/{{category.id}}" mat-raised-button>Details</button>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Delete">
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let category">
+            <button mat-raised-button color="warn" (click)="OpenDialog(category.id, 'category')">Delete</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columnsCategory"></tr>
+        <tr mat-row *matRowDef="let row; columns: columnsCategory;"></tr>
+      </table>
+      <mat-card-footer>
+        <mat-paginator [length]="generalCategories.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+      </mat-card-footer>
+    </div>
+  </mat-card>

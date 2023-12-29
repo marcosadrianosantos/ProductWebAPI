@@ -10,21 +10,25 @@ import { Observable } from 'rxjs';
 export class CategoryService {
 
   private apiUrl = `${environment.ApiUrl}/Category`
-  constructor( private http: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  GetCategories() : Observable<Category[]>{
+  GetCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.apiUrl);
   }
 
-  CreateCategory(category: Category) : Observable<Category[]>{
-    return this.http.post<Category[]>(`${this.apiUrl}`,category);
-  } 
+  CreateCategory(category: Category): Observable<Category[]> {
+    return this.http.post<Category[]>(`${this.apiUrl}`, category);
+  }
 
-  GetCategory(id: string) : Observable<Category>{
+  GetCategory(id: string): Observable<Category> {
     return this.http.get<Category>(`${this.apiUrl}/${id}`);
   }
 
-  EditCategory(id: string, category : Category) : Observable<Category[]>{
+  EditCategory(id: string, category: Category): Observable<Category[]> {
     return this.http.put<Category[]>(`${this.apiUrl}/${id}`, category);
+  }
+
+  DeleteCategory(id: string): Observable<Category[]> {
+    return this.http.delete<Category[]>(`${this.apiUrl}/${id}`);
   }
 }

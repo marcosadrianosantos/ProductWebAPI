@@ -1,32 +1,51 @@
-<h1>{{btnTitle}}</h1>
-<form [formGroup]="formProduct" (ngSubmit)="submit()" #formDit="ngForm">
-    <input type="hidden" formControlName="id">
-    <div class="input_box">
-        <label for="">Name:</label>
-        <input type="text" formControlName="name" placeholder="Insert the name!" required>
-    </div>
-    <div class="input_box">
-        <label for="">Description:</label>
-        <input type="text" formControlName="description" placeholder="Insert the description" required>
-    </div>
-    <div class="input_box">
-        <label for="">Price:</label>
-        <input type="number" formControlName="price" placeholder="Insert the price!" required>
-    </div>
-    <div class="input_box">
-        <label for="">Color:</label>
-        <input type="text" formControlName="color" placeholder="Insert the color!" required>
-    </div>  
-    <div class="input_box">
-        <label for="">Category:</label>
-        <select id="categoryId" formControlName="categoryId" required>
-            <option *ngFor="let category of categories" value="{{category.id}}">{{category.name}}</option>
-        </select>
-    </div>  
-    <div class="btn-box">
-        {{formProduct.valid}}
-        <button type="submit" [disabled]="!formProduct.valid" mat-raised-button ="accent">{{btnAction}}</button>
-        <button mat-raised-button disabled>Disabled</button>
-        <button type="button" routerLink="" mat-raised-button >Cancel</button>
-    </div>
-</form>
+<mat-card>
+    <h1>{{btnTitle}}</h1>
+    <form [formGroup]="formProduct" (ngSubmit)="submit()" #formDit="ngForm">
+
+        <input type="hidden" formControlName="id">
+
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Name:</mat-label>
+                <input matInput type="text" formControlName="name" placeholder="Insert the name!" required>
+            </mat-form-field>
+        </div>
+
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Description:</mat-label>
+                <input matInput type="text" formControlName="description" placeholder="Insert the description!"
+                    required>
+            </mat-form-field>
+        </div>
+
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Price:</mat-label>
+                <input matInput type="number" formControlName="price" placeholder="Insert the price!" required>
+            </mat-form-field>
+        </div>
+
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Color:</mat-label>
+                <input matInput type="text" formControlName="color">
+            </mat-form-field>
+        </div>
+
+        <div class="input_box">
+            <mat-form-field>
+                <mat-label for="">Category:</mat-label>
+                <mat-select id="categoryId" formControlName="categoryId" required>
+                    <mat-option *ngFor="let category of categories"
+                        value="{{category.id}}">{{category.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="btn-box">
+            <button type="submit" [disabled]="!formProduct.valid" mat-raised-button
+                color="accent" >{{btnAction}}</button>
+            <button type="button" routerLink="/productView" mat-raised-button>Cancel</button>
+        </div>
+    </form>
+</mat-card>

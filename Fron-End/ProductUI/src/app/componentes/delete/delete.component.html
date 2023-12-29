@@ -1,0 +1,32 @@
+<mat-card>
+    <div *ngIf="category">
+        <h1 style="text-align: center;">Do you wish to confirm the deletion?</h1>
+        <div>
+            <h2 style="font-style: bold;">Name:</h2>
+            <p>{{category.name}}</p>
+
+            <h2 style="font-style: bold;">Descripiton:</h2>
+            <p>{{category.description}}</p>
+        </div>
+
+        <div>
+            <button mat-raised-button color="warn" (click)="DeleteCategory()">Confirm</button>
+            <button mat-raised-button (click)="Cancel()">Cancel</button>
+        </div>
+    </div>
+    <div *ngIf="product">
+        <h1 style="text-align: center;">Do you wish to confirm the deletion?</h1>
+        <div>
+            <h2 style="font-style: bold;">Name:</h2>
+            <p>{{product.name}}</p>
+
+            <h2 style="font-style: bold;">Descripiton:</h2>
+            <p>{{product.description}}</p>
+        </div>
+
+        <div>
+            <button mat-raised-button color="warn" (click)="DeleteProduct()">Confirm</button>
+            <button mat-raised-button (click)="Cancel()">Cancel</button>
+        </div>
+    </div>
+</mat-card>

@@ -26,13 +26,13 @@ namespace ProductProject.Application.Services
         {
             try
             {
+                Validate(productRequest.Name, productRequest.Description, productRequest.Price, productRequest.CategoryId);
+
                 var category = await _categoryRepository.GetByIdAsync(productRequest.CategoryId);
                 if(category == null)
                 {
                     throw new Exception("Category not found");
                 }
-
-                Validate(productRequest.Name, productRequest.Description, productRequest.Price, productRequest.CategoryId);
 
                 var product = _mapper.Map<Product>(productRequest);
 
@@ -72,6 +72,8 @@ namespace ProductProject.Application.Services
         {
             try
             {
+                Validate(productRequest.Name, productRequest.Description, productRequest.Price, productRequest.CategoryId);
+
                 var category = await _categoryRepository.GetByIdAsync(productRequest.CategoryId);
                 if (category == null)
                 {
@@ -84,12 +86,10 @@ namespace ProductProject.Application.Services
                     throw new Exception("Product not found");
                 }
 
-                Validate(productRequest.Name, productRequest.Description, productRequest.Price, productRequest.CategoryId);
-
                 var productUpdate = _mapper.Map(productRequest, verifyProductExist);
                 await _productRepository.UpdateAsync(id, productUpdate);
 
-                return _mapper.Map<Product>(productUpdate);
+                return productUpdate;
             }
             catch (Exception ex)
             {
@@ -121,27 +121,27 @@ namespace ProductProject.Application.Services
         {
             if (string.IsNullOrWhiteSpace(name))
             {
-                throw new Exception("Field 'Name' cannot be null or empty");
+                throw new Exception("Name cannot be null or empty");
             }
 
             if (string.IsNullOrWhiteSpace(description))
             {
-                throw new Exception("Field 'Description' cannot be null or empty");
+                throw new Exception("Description cannot be null or empty");
             }
 
             if (!description.ToLower().Contains(name.ToLower()))
             {
-                throw new Exception("Field 'Description' must contain the product name inside");
+                throw new Exception("Description must contain the product name inside");
             }
 
             if (price <= 0)
             {
-                throw new Exception("Field 'Price' must be greater than zero");
+                throw new Exception("Price must be greater than zero");
             }
 
             if (string.IsNullOrWhiteSpace(categoryId))
             {
-                throw new Exception("category cannot be null");
+                throw new Exception("Category cannot be null");
             }
         }
     }

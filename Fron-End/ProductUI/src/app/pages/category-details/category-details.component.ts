@@ -9,18 +9,18 @@ import { CategoryService } from 'src/app/services/category.service';
   styleUrls: ['./category-details.component.sass']
 })
 export class CategoryDetailsComponent implements OnInit {
-    constructor(private categoryService : CategoryService, private route: ActivatedRoute, private router: Router){}
+  constructor(private categoryService: CategoryService, private route: ActivatedRoute, private router: Router) { }
 
-    id: string | null = null;
-    category? : Category;
-    
-    ngOnInit(): void {
-      this.id = this.route.snapshot.paramMap.get('id');
-      if(this.id !== null){
-        this.categoryService.GetCategory(this.id).subscribe((data => {
-          this.category = data;
-        }))
-      }
+  id: string | null = null;
+  category?: Category;
+
+  ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id');
+    if (this.id !== null) {
+      this.categoryService.GetCategory(this.id).subscribe((data => {
+        this.category = data;
+      }))
     }
+  }
 
 }
