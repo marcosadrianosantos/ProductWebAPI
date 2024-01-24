@@ -29,6 +29,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CategoryViewComponent } from './pages/category-view/category-view.component';
 import { ProductViewComponent } from './pages/product-view/product-view.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { DeleteProductComponent } from './componentes/delete-product/delete-product.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     DeleteComponent,
     CategoryViewComponent,
     ProductViewComponent,
+    DeleteProductComponent,
   ],
   imports: [
     BrowserModule,

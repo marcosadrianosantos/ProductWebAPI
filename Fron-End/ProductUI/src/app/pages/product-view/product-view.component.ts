@@ -5,6 +5,7 @@ import { Product } from 'src/app/models/Products';
 import { ProductsService } from 'src/app/services/products.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { DeleteProductComponent } from 'src/app/componentes/delete-product/delete-product.component';
 
 @Component({
   selector: 'app-product-view',
@@ -35,7 +36,7 @@ export class ProductViewComponent implements OnInit{
   }
 
   OpenDialog(id: string, type: string) {
-    this.dialog.open(DeleteComponent, {
+    this.dialog.open(DeleteProductComponent, {
       width: '450px',
       height: '450px',
       data: {
